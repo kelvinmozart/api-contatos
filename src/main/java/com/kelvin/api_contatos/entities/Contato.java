@@ -2,7 +2,8 @@ package com.kelvin.api_contatos.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,9 +15,17 @@ public class Contato implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Email(message = "E-mail inválido")
+    @NotBlank(message = "O e-mail é obrigatório")
     private String email;
+
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "Telefone é obrigatório")
     private String telefone;
+
+    @NotBlank(message = "CEP é obrigatório")
     private String cep;
     private String endereco;
     private String cidade;
