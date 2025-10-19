@@ -48,7 +48,7 @@ public class ContatosController {
 
     @PutMapping("/{email}")
     public ResponseEntity<Contato> atualizar(@PathVariable String email,
-                                             @Valid @RequestBody Contato contatoAtualizado){
+                                             @RequestBody Contato contatoAtualizado){
         Contato atualizado = contatosService.atualizar(email, contatoAtualizado);
         return ResponseEntity.ok(atualizado);
     }
